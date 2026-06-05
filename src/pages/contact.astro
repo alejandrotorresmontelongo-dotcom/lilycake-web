@@ -1,0 +1,140 @@
+---
+import config from "@/config/config.json";
+import Base from "@/layouts/Base.astro";
+import { getListPage } from "@/lib/contentParser.astro";
+import { markdownify } from "@/lib/utils/textConverter";
+import PageHeader from "@/partials/PageHeader.astro";
+
+const contact = await getListPage("contact", "-index");
+if (contact.data.draft) {
+  return Astro.redirect("/404");
+}
+const { contact_form_action }: { contact_form_action: string } = config.params;
+const { title, description, meta_title, image, open_hours } = contact.data;
+---
+
+<Base
+  title={title}
+  meta_title={meta_title}
+  description={description}
+  image={image}
+>
+  <PageHeader title={title} description={description} />
+
+  <section class="section pt-0 -mt-80 md:-mt-52">
+    <div class="container">
+      <div class="row">
+        <div class="mx-auto col-11 sm:col-10 lg:col-7">
+          <form
+            class="p-10 rounded-2xl bg-body"
+            action="https://formsubmit.co/mendozagalindoliliana@gmail.com"
+            method="POST"
+            style="box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05), 0 2px 30px rgba(0, 0, 0, 0.05);"
+            data-aos="fade-up-sm"
+            data-aos-delay="250"
+          >
+          <input type="hidden" name="_subject" value="Nuevo mensaje desde LilyCake">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_template" value="table">
+            <div class="row g-4 mb-6">
+              <div class="md:col-6">
+                <label for="name" class="form-label">
+                  Nombre <span class="text-red-500">*</span>
+                </label>
+                <input
+                  id="name"
+                  name="name"
+                  class="form-input"
+                  type="text"
+                  required
+                />
+              </div>
+              <div class="md:col-6">
+                <label for="email" class="form-label">
+                  Correo electronico <span class="text-red-500">*</span>
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  class="form-input"
+                  type="email"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="mb-6">
+              <label for="message" class="form-label">
+                Asunto <span class="text-red-500">*</span>
+              </label>
+              <input
+                id="subject"
+                name="subject"
+                class="form-input"
+                type="text"
+                required
+              />
+            </div>
+
+            <div class="mb-6">
+              <label for="message" class="form-label">
+                Mensaje <span class="text-red-500">*</span>
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                class="form-input"
+                rows="2"
+                required></textarea>
+            </div>
+            <button type="submit" class="btn w-full bg-secondary text-white">
+              Enviar mensaje
+            </button>
+          </form>
+
+          <!-- contact information -->
+          <div class="mt-16">
+            <div class="row g-5" data-aos="fade-up-sm" data-aos-delay="250">
+              <div class="sm:col-6 md:col-4">
+                <h6 class="font-primary font-bold text-lg mb-4">Llamenos:</h6>
+                <a href={`tel:${config.contact.phone}`}>
+                  <p
+                    class="text-secondary h6 font-semibold font-primary"
+                    set:html={markdownify(config.contact.phone)}
+                  />
+                </a>
+              </div>
+              {
+                open_hours && open_hours.length > 0 && (
+                  <div class="sm:col-6 md:col-4">
+                    <h6 class="font-primary font-bold text-lg mb-4">
+                      Nuestros horarios:
+                    </h6>
+                    <ul>
+                      {open_hours.map((hour) => (
+                        <li class="text-text-light">{hour}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )
+              }
+              <div class="sm:col-6 md:col-4">
+                <h6 class="font-primary font-bold text-lg mb-4">
+                  Nuestra ubicación:
+                </h6>
+                <a
+                  href={`https://www.google.com/maps/place/lilycake/@25.7440295,-100.386257,3a,75y,236.78h,80.69t/data=!3m7!1e1!3m5!1sekQnSr7qw90fq2VXoks-VA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D9.310000000000002%26panoid%3DekQnSr7qw90fq2VXoks-VA%26yaw%3D236.78!7i16384!8i8192!4m7!3m6!1s0x866297b362a48a7b:0x27fc3c2d8f698126!8m2!3d25.7439747!4d-100.3863878!10e5!16s%2Fg%2F11nk7lf3hs?entry=ttu&g_ep=EgoyMDI2MDYwMS4wIKXMDSoASAFQAw%3D%3D)}`}
+                >
+                  <p
+                    class="text-text-light text-balance"
+                    set:html={markdownify(config.contact.address)}
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

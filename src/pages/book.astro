@@ -1,0 +1,23 @@
+---
+import config from "@/config/config.json";
+import Base from "@/layouts/Base.astro";
+import { getListPage } from "@/lib/contentParser.astro";
+import PageHeader from "@/partials/PageHeader.astro";
+
+const book = await getListPage("book", "-index");
+if (book.data.draft) {
+  return Astro.redirect("/404");
+}
+
+const { contact_form_action }: { contact_form_action: string } = config.params;
+const { title, description, meta_title, image } = book.data;
+---
+
+<Base
+  title={title}
+  meta_title={meta_title}
+  description={description}
+  image={image}
+>
+  
+</Base>

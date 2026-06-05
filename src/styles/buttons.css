@@ -1,0 +1,18 @@
+.btn-solid {
+  @apply text-white transition duration-300;
+  background-color: #E4007C;
+}
+
+.btn-solid:hover {
+  background-color: #c70066;
+}
+
+.btn-outline {
+  @apply text-white border transition duration-300;
+  background-color: #E4007C;
+  border-color: #E4007C;
+}
+
+.btn-outline:hover {
+  background-color: #c70066;
+}

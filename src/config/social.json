@@ -1,0 +1,15 @@
+{
+  "main": [
+    {
+      "name": "facebook",
+      "icon": "FaFacebookF",
+      "link": "https://www.facebook.com/share/1Da7ThWyRa/"
+    },
+    
+    {
+      "name": "instagram",
+      "icon": "FaInstagram",
+      "link": "https://www.instagram.com/lilycakemty?igsh=MWl1MW91OWR5aXM2bg=="
+    }
+  ]
+}

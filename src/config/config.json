@@ -1,0 +1,49 @@
+{
+  "site": {
+    "title": "lily cake",
+    "base_url": "https://cuisine-astro.vercel.app",
+    "base_path": "/",
+    "trailing_slash": false,
+    "favicon": "/images/lilycake-logo.png",
+    "logo": "/images/lilycake-logo.png",
+    "logo_footer": "/images/lilycake-logo.png",
+    "logo_width": "180",
+    "logo_height": "180",
+    "logo_text": "lily cake"
+  },
+
+  "settings": {
+    "sticky_header": true,
+    "contact_bar": true,
+    "pagination": 6,
+    "summary_length": 200
+  },
+
+  "params": {
+    "contact_form_action": "#",
+    "footer_text": "En lilycake nos enfocamos en brindarle un mejor servicio personalizado. Comuniquese con nosotros para atenderlo y resolver sus dudas.",
+    "copyright": "Copyright © 2026 Lily Cake. All Rights Reserved"
+  },
+
+  "contact": {
+    "phone": "(52) 8126952538",
+    "email": "mendozagalindoliliana@gmail.com",
+    "address": "Plaza portales, Av Ruiz Cortines 6402, Portal de cumbres 2o sec, Monterrey N.L"
+  },
+
+  "navigation_button": {
+    "enable": true
+    
+  },
+
+  "google_tag_manager": {
+    "enable": false,
+    "gtm_id": "GTM-XXXXXX"
+  },
+
+  "metadata": {
+    "meta_author": "Themefisher",
+    "meta_image": "/images/og-image.png",
+    "meta_description": "Food & Restaurant Astro Template"
+  }
+}

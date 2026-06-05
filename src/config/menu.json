@@ -1,0 +1,34 @@
+{
+    "main": [
+        {
+            "name": "Inicio",
+            "url": "/"
+        },
+        {
+            "name": "Sobre nosotros",
+            "url": "/about"
+        },
+        {
+            "name": "Repostería artesanal",
+            "url": "/menu"
+        },
+        {
+            "name": "Contáctanos",
+            "url": "/contact"
+        }
+    ],
+    "footer": [
+        {
+            "children": [
+                {
+                    "name": "Repostería artesanal",
+                    "url": "/menu"
+                },
+                {
+                    "name": "Contáctanos",
+                    "url": "/contact"
+                }
+            ]
+        }
+    ]
+}
